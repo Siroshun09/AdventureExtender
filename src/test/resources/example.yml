@@ -1,0 +1,11 @@
+message1: "test1"
+messages:
+  message2: "test2"
+  message3: "test3"
+  child1: &group1
+    message4: "test4"
+    message5: "test5"
+  child2:
+    <<: *group1
+number1: 1053
+number2: 14.51
