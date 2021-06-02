@@ -62,6 +62,10 @@ public abstract class AbstractTranslationLoader implements TranslationLoader {
     public void load() throws IOException {
         registry = createRegistry();
 
+        if (!loadedLocales.isEmpty()) {
+            loadedLocales.clear();
+        }
+
         FileUtils.createDirectoriesIfNotExists(directory);
 
         saveDefaultIfNotExists();
