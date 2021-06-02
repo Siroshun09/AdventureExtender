@@ -50,10 +50,6 @@ public interface MessageReceivable {
      * Sends the colorized message.
      * <p>
      * This method has the same behavior as {@code sendColorizedMessage(message, false)}.
-     * <p>
-     * If you want to use hex color, it is necessary to colorize the message with
-     * {@link com.github.siroshun09.adventureextender.util.Colorizer#colorize(String)}
-     * and then execute {@code sendColorizedMessage(message, true)}.
      *
      * @param message the message to send
      */
