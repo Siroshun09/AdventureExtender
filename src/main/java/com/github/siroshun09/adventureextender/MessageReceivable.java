@@ -49,7 +49,8 @@ public interface MessageReceivable {
     /**
      * Sends the colorized message.
      * <p>
-     * This method has the same behavior as {@code sendColorizedMessage(message, false)}.
+     * This method has the same behavior as {@code sendColorizedMessage(message, false)},
+     * so this uses {@link LegacyComponentSerializer#legacyAmpersand()} to colorize messages.
      *
      * @param message the message to send
      */
