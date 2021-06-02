@@ -44,6 +44,13 @@ public interface TranslationLoader {
     void reload() throws IOException;
 
     /**
+     * Unloads loaded messages.
+     *
+     * This method will remove translated messages from {@link net.kyori.adventure.translation.GlobalTranslator}.
+     */
+    void unload();
+
+    /**
      * Gets the loaded locales.
      *
      * @return the loaded locales

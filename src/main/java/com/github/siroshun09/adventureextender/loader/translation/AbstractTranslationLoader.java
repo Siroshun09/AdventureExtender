@@ -82,6 +82,15 @@ public abstract class AbstractTranslationLoader implements TranslationLoader {
     }
 
     @Override
+    public void unload() {
+        if (registry != null) {
+            GlobalTranslator.get().removeSource(registry);
+            loadedLocales.clear();
+            registry = null;
+        }
+    }
+
+    @Override
     public @NotNull @Unmodifiable Set<Locale> getLoadedLocales() {
         return Collections.unmodifiableSet(loadedLocales);
     }
