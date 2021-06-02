@@ -16,7 +16,6 @@
 
 package com.github.siroshun09.adventureextender.loader.translation;
 
-import net.kyori.adventure.translation.Translator;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -43,18 +42,6 @@ public interface TranslationLoader {
      * @throws IOException if I/O error occurred
      */
     void reload() throws IOException;
-
-    /**
-     * Registers the loaded messages to {@link net.kyori.adventure.translation.GlobalTranslator}.
-     */
-    void register();
-
-    /**
-     * Registers the loaded messages to {@link Translator}.
-     *
-     * @param translator the {@link Translator} to register
-     */
-    void register(@NotNull Translator translator);
 
     /**
      * Gets the loaded locales.
