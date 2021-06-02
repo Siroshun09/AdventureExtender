@@ -58,53 +58,50 @@
 <span class="sourceLineNo">049</span><a id="line.49">    /**</a>
 <span class="sourceLineNo">050</span><a id="line.50">     * Sends the colorized message.</a>
 <span class="sourceLineNo">051</span><a id="line.51">     * &lt;p&gt;</a>
-<span class="sourceLineNo">052</span><a id="line.52">     * This method has the same behavior as {@code sendColorizedMessage(message, false)}.</a>
-<span class="sourceLineNo">053</span><a id="line.53">     * &lt;p&gt;</a>
-<span class="sourceLineNo">054</span><a id="line.54">     * If you want to use hex color, it is necessary to colorize the message with</a>
-<span class="sourceLineNo">055</span><a id="line.55">     * {@link com.github.siroshun09.adventureextender.util.Colorizer#colorize(String)}</a>
-<span class="sourceLineNo">056</span><a id="line.56">     * and then execute {@code sendColorizedMessage(message, true)}.</a>
-<span class="sourceLineNo">057</span><a id="line.57">     *</a>
-<span class="sourceLineNo">058</span><a id="line.58">     * @param message the message to send</a>
-<span class="sourceLineNo">059</span><a id="line.59">     */</a>
-<span class="sourceLineNo">060</span><a id="line.60">    default void sendColorizedMessage(@NotNull String message) {</a>
-<span class="sourceLineNo">061</span><a id="line.61">        sendColorizedMessage(message, false);</a>
-<span class="sourceLineNo">062</span><a id="line.62">    }</a>
-<span class="sourceLineNo">063</span><a id="line.63"></a>
-<span class="sourceLineNo">064</span><a id="line.64">    /**</a>
-<span class="sourceLineNo">065</span><a id="line.65">     * Sends the colorized message.</a>
-<span class="sourceLineNo">066</span><a id="line.66">     * &lt;p&gt;</a>
-<span class="sourceLineNo">067</span><a id="line.67">     * If {@code section} is true, this method will use {@link LegacyComponentSerializer#legacySection()},</a>
-<span class="sourceLineNo">068</span><a id="line.68">     * otherwise {@link LegacyComponentSerializer#legacyAmpersand()}.</a>
-<span class="sourceLineNo">069</span><a id="line.69">     *</a>
-<span class="sourceLineNo">070</span><a id="line.70">     * @param message the message to send</a>
-<span class="sourceLineNo">071</span><a id="line.71">     * @param section whether sections (§) are used as markers for color codes.</a>
-<span class="sourceLineNo">072</span><a id="line.72">     */</a>
-<span class="sourceLineNo">073</span><a id="line.73">    default void sendColorizedMessage(@NotNull String message, boolean section) {</a>
-<span class="sourceLineNo">074</span><a id="line.74">        if (message.isEmpty()) {</a>
-<span class="sourceLineNo">075</span><a id="line.75">            sendMessage(Component.empty());</a>
-<span class="sourceLineNo">076</span><a id="line.76">            return;</a>
-<span class="sourceLineNo">077</span><a id="line.77">        }</a>
-<span class="sourceLineNo">078</span><a id="line.78"></a>
-<span class="sourceLineNo">079</span><a id="line.79">        Component colorized;</a>
-<span class="sourceLineNo">080</span><a id="line.80"></a>
-<span class="sourceLineNo">081</span><a id="line.81">        if (section) {</a>
-<span class="sourceLineNo">082</span><a id="line.82">            colorized = LegacyComponentSerializer.legacySection().deserialize(message);</a>
-<span class="sourceLineNo">083</span><a id="line.83">        } else {</a>
-<span class="sourceLineNo">084</span><a id="line.84">            colorized = LegacyComponentSerializer.legacyAmpersand().deserialize(message);</a>
-<span class="sourceLineNo">085</span><a id="line.85">        }</a>
+<span class="sourceLineNo">052</span><a id="line.52">     * This method has the same behavior as {@code sendColorizedMessage(message, false)},</a>
+<span class="sourceLineNo">053</span><a id="line.53">     * so this uses {@link LegacyComponentSerializer#legacyAmpersand()} to colorize messages.</a>
+<span class="sourceLineNo">054</span><a id="line.54">     *</a>
+<span class="sourceLineNo">055</span><a id="line.55">     * @param message the message to send</a>
+<span class="sourceLineNo">056</span><a id="line.56">     */</a>
+<span class="sourceLineNo">057</span><a id="line.57">    default void sendColorizedMessage(@NotNull String message) {</a>
+<span class="sourceLineNo">058</span><a id="line.58">        sendColorizedMessage(message, false);</a>
+<span class="sourceLineNo">059</span><a id="line.59">    }</a>
+<span class="sourceLineNo">060</span><a id="line.60"></a>
+<span class="sourceLineNo">061</span><a id="line.61">    /**</a>
+<span class="sourceLineNo">062</span><a id="line.62">     * Sends the colorized message.</a>
+<span class="sourceLineNo">063</span><a id="line.63">     * &lt;p&gt;</a>
+<span class="sourceLineNo">064</span><a id="line.64">     * If {@code section} is true, this method will use {@link LegacyComponentSerializer#legacySection()},</a>
+<span class="sourceLineNo">065</span><a id="line.65">     * otherwise {@link LegacyComponentSerializer#legacyAmpersand()}.</a>
+<span class="sourceLineNo">066</span><a id="line.66">     *</a>
+<span class="sourceLineNo">067</span><a id="line.67">     * @param message the message to send</a>
+<span class="sourceLineNo">068</span><a id="line.68">     * @param section whether sections (§) are used as markers for color codes.</a>
+<span class="sourceLineNo">069</span><a id="line.69">     */</a>
+<span class="sourceLineNo">070</span><a id="line.70">    default void sendColorizedMessage(@NotNull String message, boolean section) {</a>
+<span class="sourceLineNo">071</span><a id="line.71">        if (message.isEmpty()) {</a>
+<span class="sourceLineNo">072</span><a id="line.72">            sendMessage(Component.empty());</a>
+<span class="sourceLineNo">073</span><a id="line.73">            return;</a>
+<span class="sourceLineNo">074</span><a id="line.74">        }</a>
+<span class="sourceLineNo">075</span><a id="line.75"></a>
+<span class="sourceLineNo">076</span><a id="line.76">        Component colorized;</a>
+<span class="sourceLineNo">077</span><a id="line.77"></a>
+<span class="sourceLineNo">078</span><a id="line.78">        if (section) {</a>
+<span class="sourceLineNo">079</span><a id="line.79">            colorized = LegacyComponentSerializer.legacySection().deserialize(message);</a>
+<span class="sourceLineNo">080</span><a id="line.80">        } else {</a>
+<span class="sourceLineNo">081</span><a id="line.81">            colorized = LegacyComponentSerializer.legacyAmpersand().deserialize(message);</a>
+<span class="sourceLineNo">082</span><a id="line.82">        }</a>
+<span class="sourceLineNo">083</span><a id="line.83"></a>
+<span class="sourceLineNo">084</span><a id="line.84">        sendMessage(colorized);</a>
+<span class="sourceLineNo">085</span><a id="line.85">    }</a>
 <span class="sourceLineNo">086</span><a id="line.86"></a>
-<span class="sourceLineNo">087</span><a id="line.87">        sendMessage(colorized);</a>
-<span class="sourceLineNo">088</span><a id="line.88">    }</a>
-<span class="sourceLineNo">089</span><a id="line.89"></a>
-<span class="sourceLineNo">090</span><a id="line.90">    /**</a>
-<span class="sourceLineNo">091</span><a id="line.91">     * Sends the {@link Component}</a>
-<span class="sourceLineNo">092</span><a id="line.92">     *</a>
-<span class="sourceLineNo">093</span><a id="line.93">     * @param component the {@link Component} to send</a>
-<span class="sourceLineNo">094</span><a id="line.94">     */</a>
-<span class="sourceLineNo">095</span><a id="line.95">    default void sendMessage(@NotNull Component component) {</a>
-<span class="sourceLineNo">096</span><a id="line.96">        getAudience().sendMessage(component);</a>
-<span class="sourceLineNo">097</span><a id="line.97">    }</a>
-<span class="sourceLineNo">098</span><a id="line.98">}</a>
+<span class="sourceLineNo">087</span><a id="line.87">    /**</a>
+<span class="sourceLineNo">088</span><a id="line.88">     * Sends the {@link Component}</a>
+<span class="sourceLineNo">089</span><a id="line.89">     *</a>
+<span class="sourceLineNo">090</span><a id="line.90">     * @param component the {@link Component} to send</a>
+<span class="sourceLineNo">091</span><a id="line.91">     */</a>
+<span class="sourceLineNo">092</span><a id="line.92">    default void sendMessage(@NotNull Component component) {</a>
+<span class="sourceLineNo">093</span><a id="line.93">        getAudience().sendMessage(component);</a>
+<span class="sourceLineNo">094</span><a id="line.94">    }</a>
+<span class="sourceLineNo">095</span><a id="line.95">}</a>
 
 
 
