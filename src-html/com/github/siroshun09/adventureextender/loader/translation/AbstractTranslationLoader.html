@@ -103,71 +103,77 @@
 <span class="sourceLineNo">094</span><a id="line.94">        }</a>
 <span class="sourceLineNo">095</span><a id="line.95">    }</a>
 <span class="sourceLineNo">096</span><a id="line.96"></a>
-<span class="sourceLineNo">097</span><a id="line.97">    @Override</a>
-<span class="sourceLineNo">098</span><a id="line.98">    public @NotNull @Unmodifiable Set&lt;Locale&gt; getLoadedLocales() {</a>
-<span class="sourceLineNo">099</span><a id="line.99">        return Collections.unmodifiableSet(loadedLocales);</a>
-<span class="sourceLineNo">100</span><a id="line.100">    }</a>
-<span class="sourceLineNo">101</span><a id="line.101"></a>
-<span class="sourceLineNo">102</span><a id="line.102">    @Override</a>
-<span class="sourceLineNo">103</span><a id="line.103">    public @NotNull Path getDirectory() {</a>
-<span class="sourceLineNo">104</span><a id="line.104">        return directory;</a>
-<span class="sourceLineNo">105</span><a id="line.105">    }</a>
-<span class="sourceLineNo">106</span><a id="line.106"></a>
-<span class="sourceLineNo">107</span><a id="line.107">    /**</a>
-<span class="sourceLineNo">108</span><a id="line.108">     * Saves default message files if not exists.</a>
-<span class="sourceLineNo">109</span><a id="line.109">     *</a>
-<span class="sourceLineNo">110</span><a id="line.110">     * @throws IOException if I/O error occurred</a>
-<span class="sourceLineNo">111</span><a id="line.111">     */</a>
-<span class="sourceLineNo">112</span><a id="line.112">    protected abstract void saveDefaultIfNotExists() throws IOException;</a>
-<span class="sourceLineNo">113</span><a id="line.113"></a>
-<span class="sourceLineNo">114</span><a id="line.114">    /**</a>
-<span class="sourceLineNo">115</span><a id="line.115">     * Creates {@link TranslationRegistry}.</a>
-<span class="sourceLineNo">116</span><a id="line.116">     *</a>
-<span class="sourceLineNo">117</span><a id="line.117">     * @return new {@link TranslationRegistry}</a>
-<span class="sourceLineNo">118</span><a id="line.118">     */</a>
-<span class="sourceLineNo">119</span><a id="line.119">    protected abstract @NotNull TranslationRegistry createRegistry();</a>
-<span class="sourceLineNo">120</span><a id="line.120"></a>
-<span class="sourceLineNo">121</span><a id="line.121">    /**</a>
-<span class="sourceLineNo">122</span><a id="line.122">     * Creates {@link MessageLoader} that matches the format of the file to load.</a>
-<span class="sourceLineNo">123</span><a id="line.123">     *</a>
-<span class="sourceLineNo">124</span><a id="line.124">     * @param path the filepath</a>
-<span class="sourceLineNo">125</span><a id="line.125">     * @return new {@link MessageLoader}</a>
-<span class="sourceLineNo">126</span><a id="line.126">     */</a>
-<span class="sourceLineNo">127</span><a id="line.127">    protected abstract @NotNull MessageLoader createMessageLoader(@NotNull Path path);</a>
-<span class="sourceLineNo">128</span><a id="line.128"></a>
-<span class="sourceLineNo">129</span><a id="line.129">    private void loadDefault() throws IOException {</a>
-<span class="sourceLineNo">130</span><a id="line.130">        var defaultFileName = defaultLocale + fileExtension;</a>
-<span class="sourceLineNo">131</span><a id="line.131">        var defaultFile = directory.resolve(defaultFileName);</a>
-<span class="sourceLineNo">132</span><a id="line.132"></a>
-<span class="sourceLineNo">133</span><a id="line.133">        loadFile(defaultFile);</a>
-<span class="sourceLineNo">134</span><a id="line.134">    }</a>
-<span class="sourceLineNo">135</span><a id="line.135"></a>
-<span class="sourceLineNo">136</span><a id="line.136">    private void loadCustom() throws IOException {</a>
-<span class="sourceLineNo">137</span><a id="line.137">        try (var files = Files.list(directory)) {</a>
-<span class="sourceLineNo">138</span><a id="line.138">            var languageFiles =</a>
-<span class="sourceLineNo">139</span><a id="line.139">                    files.filter(Files::isRegularFile)</a>
-<span class="sourceLineNo">140</span><a id="line.140">                            .filter(p -&gt; !p.toString().endsWith(defaultLocale + fileExtension))</a>
-<span class="sourceLineNo">141</span><a id="line.141">                            .collect(Collectors.toUnmodifiableSet());</a>
-<span class="sourceLineNo">142</span><a id="line.142"></a>
-<span class="sourceLineNo">143</span><a id="line.143">            for (var file : languageFiles) {</a>
-<span class="sourceLineNo">144</span><a id="line.144">                loadFile(file);</a>
-<span class="sourceLineNo">145</span><a id="line.145">            }</a>
-<span class="sourceLineNo">146</span><a id="line.146">        }</a>
-<span class="sourceLineNo">147</span><a id="line.147">    }</a>
+<span class="sourceLineNo">097</span><a id="line.97">    @NotNull</a>
+<span class="sourceLineNo">098</span><a id="line.98">    @Override</a>
+<span class="sourceLineNo">099</span><a id="line.99">    public Locale getDefaultLocale() {</a>
+<span class="sourceLineNo">100</span><a id="line.100">        return defaultLocale;</a>
+<span class="sourceLineNo">101</span><a id="line.101">    }</a>
+<span class="sourceLineNo">102</span><a id="line.102"></a>
+<span class="sourceLineNo">103</span><a id="line.103">    @Override</a>
+<span class="sourceLineNo">104</span><a id="line.104">    public @NotNull @Unmodifiable Set&lt;Locale&gt; getLoadedLocales() {</a>
+<span class="sourceLineNo">105</span><a id="line.105">        return Collections.unmodifiableSet(loadedLocales);</a>
+<span class="sourceLineNo">106</span><a id="line.106">    }</a>
+<span class="sourceLineNo">107</span><a id="line.107"></a>
+<span class="sourceLineNo">108</span><a id="line.108">    @Override</a>
+<span class="sourceLineNo">109</span><a id="line.109">    public @NotNull Path getDirectory() {</a>
+<span class="sourceLineNo">110</span><a id="line.110">        return directory;</a>
+<span class="sourceLineNo">111</span><a id="line.111">    }</a>
+<span class="sourceLineNo">112</span><a id="line.112"></a>
+<span class="sourceLineNo">113</span><a id="line.113">    /**</a>
+<span class="sourceLineNo">114</span><a id="line.114">     * Saves default message files if not exists.</a>
+<span class="sourceLineNo">115</span><a id="line.115">     *</a>
+<span class="sourceLineNo">116</span><a id="line.116">     * @throws IOException if I/O error occurred</a>
+<span class="sourceLineNo">117</span><a id="line.117">     */</a>
+<span class="sourceLineNo">118</span><a id="line.118">    protected abstract void saveDefaultIfNotExists() throws IOException;</a>
+<span class="sourceLineNo">119</span><a id="line.119"></a>
+<span class="sourceLineNo">120</span><a id="line.120">    /**</a>
+<span class="sourceLineNo">121</span><a id="line.121">     * Creates {@link TranslationRegistry}.</a>
+<span class="sourceLineNo">122</span><a id="line.122">     *</a>
+<span class="sourceLineNo">123</span><a id="line.123">     * @return new {@link TranslationRegistry}</a>
+<span class="sourceLineNo">124</span><a id="line.124">     */</a>
+<span class="sourceLineNo">125</span><a id="line.125">    protected abstract @NotNull TranslationRegistry createRegistry();</a>
+<span class="sourceLineNo">126</span><a id="line.126"></a>
+<span class="sourceLineNo">127</span><a id="line.127">    /**</a>
+<span class="sourceLineNo">128</span><a id="line.128">     * Creates {@link MessageLoader} that matches the format of the file to load.</a>
+<span class="sourceLineNo">129</span><a id="line.129">     *</a>
+<span class="sourceLineNo">130</span><a id="line.130">     * @param path the filepath</a>
+<span class="sourceLineNo">131</span><a id="line.131">     * @return new {@link MessageLoader}</a>
+<span class="sourceLineNo">132</span><a id="line.132">     */</a>
+<span class="sourceLineNo">133</span><a id="line.133">    protected abstract @NotNull MessageLoader createMessageLoader(@NotNull Path path);</a>
+<span class="sourceLineNo">134</span><a id="line.134"></a>
+<span class="sourceLineNo">135</span><a id="line.135">    private void loadDefault() throws IOException {</a>
+<span class="sourceLineNo">136</span><a id="line.136">        var defaultFileName = defaultLocale + fileExtension;</a>
+<span class="sourceLineNo">137</span><a id="line.137">        var defaultFile = directory.resolve(defaultFileName);</a>
+<span class="sourceLineNo">138</span><a id="line.138"></a>
+<span class="sourceLineNo">139</span><a id="line.139">        loadFile(defaultFile);</a>
+<span class="sourceLineNo">140</span><a id="line.140">    }</a>
+<span class="sourceLineNo">141</span><a id="line.141"></a>
+<span class="sourceLineNo">142</span><a id="line.142">    private void loadCustom() throws IOException {</a>
+<span class="sourceLineNo">143</span><a id="line.143">        try (var files = Files.list(directory)) {</a>
+<span class="sourceLineNo">144</span><a id="line.144">            var languageFiles =</a>
+<span class="sourceLineNo">145</span><a id="line.145">                    files.filter(Files::isRegularFile)</a>
+<span class="sourceLineNo">146</span><a id="line.146">                            .filter(p -&gt; !p.toString().endsWith(defaultLocale + fileExtension))</a>
+<span class="sourceLineNo">147</span><a id="line.147">                            .collect(Collectors.toUnmodifiableSet());</a>
 <span class="sourceLineNo">148</span><a id="line.148"></a>
-<span class="sourceLineNo">149</span><a id="line.149">    private void loadFile(@NotNull Path path) throws IOException {</a>
-<span class="sourceLineNo">150</span><a id="line.150">        var loader = createMessageLoader(path);</a>
-<span class="sourceLineNo">151</span><a id="line.151"></a>
-<span class="sourceLineNo">152</span><a id="line.152">        var locale = loader.getLocale();</a>
-<span class="sourceLineNo">153</span><a id="line.153"></a>
-<span class="sourceLineNo">154</span><a id="line.154">        if (locale != null) {</a>
-<span class="sourceLineNo">155</span><a id="line.155">            loader.load();</a>
-<span class="sourceLineNo">156</span><a id="line.156">            loader.register(registry, locale);</a>
+<span class="sourceLineNo">149</span><a id="line.149">            for (var file : languageFiles) {</a>
+<span class="sourceLineNo">150</span><a id="line.150">                loadFile(file);</a>
+<span class="sourceLineNo">151</span><a id="line.151">            }</a>
+<span class="sourceLineNo">152</span><a id="line.152">        }</a>
+<span class="sourceLineNo">153</span><a id="line.153">    }</a>
+<span class="sourceLineNo">154</span><a id="line.154"></a>
+<span class="sourceLineNo">155</span><a id="line.155">    private void loadFile(@NotNull Path path) throws IOException {</a>
+<span class="sourceLineNo">156</span><a id="line.156">        var loader = createMessageLoader(path);</a>
 <span class="sourceLineNo">157</span><a id="line.157"></a>
-<span class="sourceLineNo">158</span><a id="line.158">            loadedLocales.add(locale);</a>
-<span class="sourceLineNo">159</span><a id="line.159">        }</a>
-<span class="sourceLineNo">160</span><a id="line.160">    }</a>
-<span class="sourceLineNo">161</span><a id="line.161">}</a>
+<span class="sourceLineNo">158</span><a id="line.158">        var locale = loader.getLocale();</a>
+<span class="sourceLineNo">159</span><a id="line.159"></a>
+<span class="sourceLineNo">160</span><a id="line.160">        if (locale != null) {</a>
+<span class="sourceLineNo">161</span><a id="line.161">            loader.load();</a>
+<span class="sourceLineNo">162</span><a id="line.162">            loader.register(registry, locale);</a>
+<span class="sourceLineNo">163</span><a id="line.163"></a>
+<span class="sourceLineNo">164</span><a id="line.164">            loadedLocales.add(locale);</a>
+<span class="sourceLineNo">165</span><a id="line.165">        }</a>
+<span class="sourceLineNo">166</span><a id="line.166">    }</a>
+<span class="sourceLineNo">167</span><a id="line.167">}</a>
 
 
 
