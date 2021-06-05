@@ -51,6 +51,13 @@ public interface TranslationLoader {
     void unload();
 
     /**
+     * Gets default locale of this loader.
+     *
+     * @return default locale of this loader
+     */
+    @NotNull Locale getDefaultLocale();
+
+    /**
      * Gets the loaded locales.
      *
      * @return the loaded locales

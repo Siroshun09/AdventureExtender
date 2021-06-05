@@ -94,6 +94,12 @@ public abstract class AbstractTranslationLoader implements TranslationLoader {
         }
     }
 
+    @NotNull
+    @Override
+    public Locale getDefaultLocale() {
+        return defaultLocale;
+    }
+
     @Override
     public @NotNull @Unmodifiable Set<Locale> getLoadedLocales() {
         return Collections.unmodifiableSet(loadedLocales);
