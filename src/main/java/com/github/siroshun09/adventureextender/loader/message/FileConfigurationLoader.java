@@ -16,8 +16,9 @@
 
 package com.github.siroshun09.adventureextender.loader.message;
 
-import com.github.siroshun09.configapi.common.Configuration;
-import com.github.siroshun09.configapi.common.FileConfiguration;
+import com.github.siroshun09.configapi.api.Configuration;
+import com.github.siroshun09.configapi.api.MappedConfiguration;
+import com.github.siroshun09.configapi.api.file.FileConfiguration;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -47,13 +48,13 @@ class FileConfigurationLoader extends AbstractMessageLoader {
 
     @SuppressWarnings("unchecked")
     private void getMessagesFromConfig(@NotNull Configuration config, @NotNull String keyPrefix) {
-        for (String key : config.getKeys()) {
+        for (String key : config.getPaths()) {
             var object = config.get(key);
 
             if (object instanceof Map) {
-                var map = (Map<String, Object>) object;
-                var child = Configuration.create(map);
-                var newKeyPrefix = keyPrefix + key + Configuration.KEY_SEPARATOR;
+                var map = (Map<Object, Object>) object;
+                var child = MappedConfiguration.create(map);
+                var newKeyPrefix = keyPrefix + key + Configuration.PATH_SEPARATOR;
 
                 getMessagesFromConfig(child, newKeyPrefix);
 

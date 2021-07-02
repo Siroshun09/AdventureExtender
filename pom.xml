@@ -69,25 +69,25 @@
         <dependency>
             <groupId>net.kyori</groupId>
             <artifactId>adventure-api</artifactId>
-            <version>4.7.0</version>
+            <version>4.8.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>net.kyori</groupId>
             <artifactId>adventure-text-serializer-legacy</artifactId>
-            <version>4.7.0</version>
+            <version>4.8.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.siroshun09.configapi</groupId>
-            <artifactId>common</artifactId>
-            <version>3.1.0</version>
+            <artifactId>api</artifactId>
+            <version>4.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.siroshun09.configapi</groupId>
             <artifactId>yaml</artifactId>
-            <version>3.1.0</version>
+            <version>4.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -111,7 +111,7 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>1.28</version>
+            <version>1.29</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
