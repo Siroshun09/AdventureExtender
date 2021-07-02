@@ -80,14 +80,14 @@
         </dependency>
         <dependency>
             <groupId>com.github.siroshun09.configapi</groupId>
-            <artifactId>common</artifactId>
-            <version>3.1.0</version>
+            <artifactId>api</artifactId>
+            <version>4.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.github.siroshun09.configapi</groupId>
             <artifactId>yaml</artifactId>
-            <version>3.1.0</version>
+            <version>4.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
