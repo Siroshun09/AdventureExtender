@@ -17,7 +17,7 @@
 package com.github.siroshun09.adventureextender.loader.translation;
 
 import com.github.siroshun09.adventureextender.loader.message.MessageLoader;
-import com.github.siroshun09.configapi.common.util.FileUtils;
+import com.github.siroshun09.configapi.api.util.FileUtils;
 import net.kyori.adventure.translation.GlobalTranslator;
 import net.kyori.adventure.translation.TranslationRegistry;
 import org.jetbrains.annotations.NotNull;

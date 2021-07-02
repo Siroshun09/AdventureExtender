@@ -17,7 +17,6 @@
 package com.github.siroshun09.adventureextender.loader.translation;
 
 import com.github.siroshun09.adventureextender.loader.message.MessageLoader;
-import com.github.siroshun09.configapi.yaml.YamlConfiguration;
 import org.jetbrains.annotations.NotNull;
 
 import java.nio.file.Path;
@@ -40,7 +39,6 @@ public abstract class YamlTranslationLoader extends AbstractTranslationLoader {
 
     @Override
     protected @NotNull MessageLoader createMessageLoader(@NotNull Path path) {
-        var config = YamlConfiguration.create(path);
-        return MessageLoader.fromFileConfiguration(config);
+        return MessageLoader.fromYaml(path);
     }
 }
