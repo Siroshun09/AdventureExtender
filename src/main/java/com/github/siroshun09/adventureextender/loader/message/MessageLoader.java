@@ -46,6 +46,12 @@ public interface MessageLoader {
         return new FileConfigurationLoader(PropertiesConfiguration.create(path));
     }
 
+    /**
+     * Creates {@link MessageLoader} that loads from yaml file.
+     *
+     * @param path the path to load
+     * @return the {@link MessageLoader}
+     */
     @Contract("_ -> new")
     static @NotNull MessageLoader fromYaml(@NotNull Path path) {
         return new FileConfigurationLoader(YamlConfiguration.create(path));
