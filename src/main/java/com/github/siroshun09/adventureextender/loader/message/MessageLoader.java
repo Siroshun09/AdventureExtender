@@ -17,7 +17,7 @@
 package com.github.siroshun09.adventureextender.loader.message;
 
 import com.github.siroshun09.configapi.api.file.FileConfiguration;
-import com.github.siroshun09.configapi.api.file.PropertiesFileConfiguration;
+import com.github.siroshun09.configapi.api.file.PropertiesConfiguration;
 import com.github.siroshun09.configapi.yaml.YamlConfiguration;
 import net.kyori.adventure.translation.TranslationRegistry;
 import org.jetbrains.annotations.Contract;
@@ -43,7 +43,7 @@ public interface MessageLoader {
      */
     @Contract("_ -> new")
     static @NotNull MessageLoader fromProperties(@NotNull Path path) {
-        return new FileConfigurationLoader(PropertiesFileConfiguration.create(path));
+        return new FileConfigurationLoader(PropertiesConfiguration.create(path));
     }
 
     @Contract("_ -> new")
