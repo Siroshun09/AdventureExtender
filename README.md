@@ -16,7 +16,7 @@ A library to extends [Adventure](https://github.com/KyoriPowered/Adventure)
 <dependency>
     <groupId>com.github.siroshun09.adventureextender</groupId>
     <artifactId>adventureextender</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -29,7 +29,7 @@ If needed, you should add those dependencies.
 
 ```
     dependencies {
-        compile 'com.github.siroshun09.adventureextender:adventureextender:1.2.0'
+        compile 'com.github.siroshun09.adventureextender:adventureextender:1.2.1-SNAPSHOT'
     }
 ```
 
