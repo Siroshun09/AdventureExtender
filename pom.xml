@@ -87,7 +87,7 @@
         <dependency>
             <groupId>com.github.siroshun09.configapi</groupId>
             <artifactId>configapi-yaml</artifactId>
-            <version>4.1.0</version>
+            <version>4.2.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
