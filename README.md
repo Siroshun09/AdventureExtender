@@ -1,5 +1,7 @@
 # AdventureExtender
 
+**This project moved to [TranslationLoader](https://github.com/Siroshun09/TranslationLoader)**
+
 ![Maven Central](https://img.shields.io/maven-central/v/com.github.siroshun09.adventureextender/adventureextender)
 ![Maven Central](https://img.shields.io/nexus/s/com.github.siroshun09.adventureextender/adventureextender?label=snapshot&server=https%3A%2F%2Foss.sonatype.org)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Siroshun09/AdventureExtender/Java%20CI)
